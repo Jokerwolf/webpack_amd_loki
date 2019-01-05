@@ -12,17 +12,36 @@
       baseUrl: 'js',
     });
   </script>
-  <script src="js/runtime.js"></script>
-  <script src="js/loki/index.js"></script>
-  <script src="js/loki/components.js"></script>
-</head>
-<body>
+
+  <script src="js/runtime.bundles.js"></script>
+  <script src="js/loki/bundles/master.js"></script>
   <script>
-    console.log('Body script');
-    require(['loki/components'], function(components) {
-      console.log('Components body');
-      components.getComponent('b').then(component => component.talk());
+    require(['loki/bundles/master'], function(master) {
+      master.talk();
     });
   </script>
+</head>
+<body>
+  <!-- <script>
+    require(['loki/bundles/components'], function(components) {
+      components.getComponent('b').then(component => component.talk('From index bundle'));
+    });
+  </script>
+  <script>
+    require(['loki/bundles/components'], function(components) {
+      components.getComponent('b').then(component => component.talk('From index bundle'));
+      components.getComponent('c').then(component => component.talk('From index bundle'));
+    });
+  </script>
+  <script>
+    require(['loki/components/b'], function(component) {
+      component.talk('From index fallback');
+    });
+  </script>
+  <script>
+    require(['loki/components/b'], function(component) {
+      component.talk('From index fallback');
+    });
+  </script> -->
 </body>
 </html>

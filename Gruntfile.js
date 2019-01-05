@@ -20,7 +20,8 @@ const config = function(grunt) {
   *******************************************************************************************************/
   grunt.task.registerTask('production', [
     'run:cleanup',
-    'webpack:production'
+    'webpack:fallbacks-production',
+    'webpack:bundles-production',
   ]);
 
   /*******************************************************************************************************
@@ -28,7 +29,9 @@ const config = function(grunt) {
   *******************************************************************************************************/
   grunt.task.registerTask('development', [
     'run:cleanup',
-    'webpack:development'
+    'webpack:development',
+    'webpack:fallbacks-development',
+    'webpack:bundles-development',
   ]);
 };
 

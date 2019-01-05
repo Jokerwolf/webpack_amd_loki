@@ -1,9 +1,5 @@
 const path = require('path');
 
-const entry = {
-  'master': './src/master.js',
-  'components': './src/components.js',
-};
 const output = {
   path: path.resolve(__dirname, 'dist/js/loki/'),
   filename: '[name].js',
@@ -29,17 +25,18 @@ const rules = [
 ];
 
 const optimization = {
-  runtimeChunk: {
-    name: '../runtime'
-  },
 };
 
 const config = {
   mode: 'development',
-  entry,
   output,
   module: { rules },
   optimization,
+  resolve: {
+    alias: {
+      loki: path.resolve(__dirname, 'src'),
+    },
+  },
 };
 
 module.exports = config;

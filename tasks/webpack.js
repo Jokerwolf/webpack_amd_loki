@@ -1,8 +1,11 @@
-const webpackConfig = require('../webpack.config');
+const webpackFallbacksConfig = require('../webpack.fallbacks.config');
+const webpackBundlesConfig = require('../webpack.bundles.config');
 
 const config = {
-  development: Object.assign({ watch: false }, webpackConfig, { mode: 'development' }),
-  production: Object.assign({ watch: false }, webpackConfig, { mode: 'production' }),
+  'fallbacks-development': Object.assign({ watch: false }, webpackFallbacksConfig, { mode: 'development' }),
+  'fallbacks-production': Object.assign({ watch: false }, webpackFallbacksConfig, { mode: 'production' }),
+  'bundles-development': Object.assign({ watch: false }, webpackBundlesConfig, { mode: 'development' }),
+  'bundles-production': Object.assign({ watch: false }, webpackBundlesConfig, { mode: 'production' }),
 };
 
 module.exports = config;
