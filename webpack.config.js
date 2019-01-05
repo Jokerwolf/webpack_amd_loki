@@ -35,7 +35,7 @@ const optimization = {
 };
 
 const config = {
-  mode: 'production',
+  mode: 'development',
   entry,
   output,
   module: { rules },
